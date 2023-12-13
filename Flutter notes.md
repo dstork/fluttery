@@ -5,12 +5,12 @@
 * `main` is always the entry function, and usually consists of a call passing an instance of a StatelessWidget to `runApp`
 ```dart
 void main() {
-	runApp(constMyApp());
+	runApp(const MyApp());
 }
 ```
 or shorter
 ```dart
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 ```
 This StatelessWidget consists of at least one method, `Widget build(BuildContext context)`. It returns the top-level component/widget, typically a `MaterialApp`.
 
@@ -41,12 +41,17 @@ State<Widget> createState() => _WidgetState();
 * `SafeArea` defines an area that is not obscured by a hardware notch or a status bar. Has a single `child`
 * `NavigationRail` defines a sidebar with multiple `destinations` (`NavigationRailDestination`) and can predefine a `selectedIndex`. Event handler `onDestinationSelected`
 * `NavigationRailDestination` contains an `icon` and a `label`
-* `Expanded`, "greedy" container that automatically uses all available space. Must be a descendant of a `Row`, `Column` or `Flex`
+* `Expanded`, "greedy" container that automatically uses all available space. Must be a descendant of a `Row`, `Column` or `Flex`. If you're using multiple  `Expanded` widgets, you can specify via the `flex` parameter how this particular widget is to be stretched in size, relative to the others. Specifies its content via the `child` property
 * `Placeholder` draws a crossed rectangle to indicate that part of the UI as unfinished
 * `LayoutBuilder` contains a `builder(context, constraints)` method which allows to retrieve information about e.g. screen size. It is called every time `constraints` change (e.g. when the user rotates their phone) and it returns a Widget-tree which can change depending on `constraints`-property: `NavigationRail(extended: constraints.maxWidth >= 600)`
 * `ListView`, a column that scrolls
 * `ListTile` with `title`, `leading` and `onTap`
 * `MaterialApp`, convenience widget that wraps a number of widgets that are commonly required for Material Design applications
+* `ColoredBox`, 
+* `AnimatedSwitcher` defines a `child` and a `duration`
+* `Spacer` creates an adjustable, empty spacer that can be used to tune the spacing between widgets in a Flex container, like `Row` or `Column`
+* `AnimatedSize`, animated widget that automatically transitions its size over a given `duration` whenever the given `child`'s size changes
+* `Dismissible`, a widget that can be dismissed by dragging in the indicated direction
 
 ## State
 
